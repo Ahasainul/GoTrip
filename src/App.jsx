@@ -1,14 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
+import Home from "./pagesh/Home";
 function App() {
-  const [count, setCount] = useState(0)
-
+ 
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+     <Route>
+      <Route path="/" element={<Home/>}/>
+     </Route>
+    )
+  );
   return (
     <>
-    <h1 className=''>hellow</h1>
+    <RouterProvider router={router} />
     </>
   )
 }
