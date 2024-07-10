@@ -1,131 +1,44 @@
-import React, { useEffect, useState } from "react";
-import Image from "../component/Image";
 import logo from "../assets/logo.png";
-import flag from "../assets/flag.png";
-import List from "../component/List";
-import Flex from "../component/Flex";
-import { FaCaretDown } from "react-icons/fa";
-import axios from "axios";
+import Image from "../component/Image";
+import { FaSearch } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
+
+import Darkmood from "../component/Darkmood";
 
 const Naver = () => {
-  let [all, setall] = useState([]);
-  useEffect(() => {
-    async function all() {
-      let data = await axios.get("https://restcountries.com/v3.1/all");
-      setall(data.data);
-    }
-    all();
-  }),
-    [];
-
   return (
     <>
-      <div className="max-w-[1920px] mx-auto bg-[#13357B] py-5 px-5">
-        <div className="flex items-center justify-between">
-          <div className="flex gap-x-10 items-center">
-            <Image src={logo} alt={"logo.png"} />
-            <div className="">
-              <ul>
-                <Flex>
-                  <div className="flex items-center  relative">
-                    <List
-                      className={
-                        "text-white font-jost text-base pr-12  font-bold  "
-                      }
-                      manuName={"Home"}
-                    />
-                    <FaCaretDown className="text-white text-base absolute left-12" />
-                  </div>
-                  <div className="flex items-center  relative">
-                    <List
-                      className={
-                        "text-white font-jost text-base pr-12  font-bold "
-                      }
-                      manuName={" Categories"}
-                    />
-                    <FaCaretDown className="text-white text-base absolute left-[85px]" />
-                  </div>
-                  <List
-                    className={"text-white font-jost text-base pr-8 font-bold "}
-                    manuName={"Destination"}
-                  />
-
-                  <div className="flex items-center  relative">
-                    <List
-                      className={
-                        "text-white font-jost text-base pr-12  font-bold "
-                      }
-                      manuName={"Blog"}
-                    />
-                    <FaCaretDown className="text-white text-base absolute left-9" />
-                  </div>
-                  <div className="flex items-center  relative">
-                    <List
-                      className={
-                        "text-white font-jost text-base pr-12  font-bold "
-                      }
-                      manuName={"Pages"}
-                    />
-                    <FaCaretDown className="text-white text-base absolute left-12" />
-                  </div>
-
-                  <List
-                    className={
-                      "text-white font-jost text-base pr-8  font-bold "
-                    }
-                    manuName={"Contact"}
-                  />
-                </Flex>
-              </ul>
+      <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
+        <div className="bg-primary/40 py-2">
+          <div className="container flex justify-between items-center">
+            <div className="flex items-center gap-2 ">
+              <Image className={"w-16"} src={logo} alt={logo.png} />
+              <span className="font-bold text-[30px]">Shopsy</span>
             </div>
-          </div>
-          {/* ////// */}
-          <div className=" flex items-center"> 
-            <div className=" relative before:absolute before:h-6 before:top-0 before:left-[100px] before:w-1 before:bg-[#425D95] before:content-[''] ">
-              <select className="outline-none border-none overflow-hidden bg-transparent text-white font-jost  ">
-                <option
-                  value=" city"
-                  className="outline-none border-none overflow-hidden  text-base  "
-                >
-                  USD
-                </option>
-                {all.map((item) => (
-                  <option
-                    value=" city"
-                    className="outline-none bg-zinc-800  text-center border-none overflow-hidden "
-                  >
-                    {" "}
-                    {item.region}{" "}
-                  </option>
-                ))}
-              </select>
+            <div className="flex gap-x-5">
+              <div className="group relative hidden sm:block">
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="search"
+                  className="border rounded-full w-[200px] sm-[200px] group-hover:w-[300px] px-2 py-1 transition-all duration-300 focus:outline-none focus:border-1 focus:border-primary"
+                />
+                <FaSearch className="group-hover:text-primary absolute top-1/2 -translate-y-1/2 text-gray-500 right-3" />
+                <div className=""></div>
+              </div>
+            <div className=" flex items-center gap-5">
+            <button
+                onClick={() => alert("Oradering ont avalible yet")}
+                className="bg-gradient-to-r from-primary to-secondary transition-all duration-300 text-white py-1 px-4 rounded-full flex items-center gap-3 group"
+              >
+                <span className="group-hover:block hidden font-bold transition-all duration-300">
+                  Ordar{" "}
+                </span>
+                <FaShoppingCart className="text-xl text-white drop-shadow-sm cursor-pointer  " />
+              </button>
+              <Darkmood/>
             </div>
-
-            <div className="flex gap-5 items-center">
-
-                <div className="">
-                <Image className={'ml-10'} src={flag} alt={'flag'}/>
-
-                </div>
-               <div className="">
-               <select className="outline-none border-none overflow-hidden bg-transparent text-white font-jost  ">
-                <option
-                  value=" city"
-                  className="outline-none border-none overflow-hidden  text-base  "
-                >
-                United Kingdom
-                </option>
-                {all.map((item) => (
-                  <option
-                    value=" city"
-                    className="outline-none bg-zinc-800  text-center border-none overflow-hidden "
-                  >
-                    {" "}
-                    {item.region}{" "}
-                  </option>
-                ))}
-              </select>
-               </div>
             </div>
           </div>
         </div>
