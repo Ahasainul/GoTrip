@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "aos": "^2.3.4",
+    "aso": "^1.1.1",
     "axios": "^1.7.2",
     "install": "^0.13.0",
     "react": "^18.3.1",

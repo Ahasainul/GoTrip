@@ -3,6 +3,8 @@ import banner1 from "../assets/banner1.png";
 import banner2 from "../assets/banner2.png";
 import banner3 from "../assets/banner3.png";
 import Slider from "react-slick";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ImageList = [
   {
@@ -32,14 +34,23 @@ const Hero = () => {
     dots: false,
     infinite: true,
     arrows: false,
-    speed: 5000 ,
+    speed: 8000,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 800,
+    autoplaySpeed: 400,
     cssEase: "ease-in-out",
     pauseOnHover: false,
     pauseOnFocus: true,
   };
+  React.useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-out-sine",
+      delay: 100,
+    });
+    AOS.refresh();
+  }, []);
   return (
     <>
       <div className=" relative overflow-hidden min-h-[550px] sm:min-h-[650px] bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200">
@@ -51,12 +62,15 @@ const Hero = () => {
               <div className="">
                 <div className="grid grid-cols-1 sm:grid-cols-2">
                   <div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10">
-                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
-                     {item.title}
+                    <h1
+                      data-aos="zoom-out"
+                      data-aos-duration="500"
+                      data-aos-once="true"
+                      className="text-5xl sm:text-6xl lg:text-7xl  font-bold"
+                    >
+                      {item.title}
                     </h1>
-                    <p className="text-sm">
-                     {item.description}
-                    </p>
+                    <p className="text-sm font-semibold">{item.description}</p>
                     <div className="">
                       <button className="bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white py-2 px-4 rounded-full hover:scale-105">
                         Order Now
