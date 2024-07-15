@@ -71,7 +71,12 @@ const Hero = () => {
                       {item.title}
                     </h1>
                     <p className="text-sm font-semibold">{item.description}</p>
-                    <div className="">
+                    <div
+                      className=""
+                      data-aos="fade-up"
+                      data-aos-duration="500"
+                      data-aos-dalay="300"
+                    >
                       <button className="bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white py-2 px-4 rounded-full hover:scale-105">
                         Order Now
                       </button>
