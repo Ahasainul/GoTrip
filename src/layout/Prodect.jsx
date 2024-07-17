@@ -97,11 +97,12 @@ const Prodect = () => {
               </div>
             </>
           ))}
-         
         </div>
         <div className="flex justify-center mt-20 ">
-            <button className=" font-semibold text-center cursor-pointer rounded-lg bg-primary text-white py-2 px-4 ">View All Button</button>
-          </div>
+          <button className=" font-semibold text-center cursor-pointer rounded-lg bg-primary text-white py-2 px-4 ">
+            View All Button
+          </button>
+        </div>
       </div>
     </>
   );
